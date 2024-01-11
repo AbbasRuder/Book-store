@@ -4,9 +4,8 @@ import { useParams } from "@solidjs/router";
 
 export default function BookDetails() {
   const { id } = useParams()
-
-
   const selectedBook = data.books.filter(item => item.ISBN === parseInt(id))[0]
+
   return (
     <div class="h-screen sm:px-28 py-8 sm:py-12 bg-orange-50">
       <span class="text-xl sm:text-4xl font-bold underline text-orange-900">

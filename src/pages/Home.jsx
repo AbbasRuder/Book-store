@@ -1,20 +1,21 @@
 import image from "../assets/book.jpg"
 import { data } from "../../books-data";
 import { For } from "solid-js";
-import { A } from "@solidjs/router";
+import ScrollableCard from "../widgets/ScrollableCard";
+
+const categories = ['Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature']
 
 export default function Home() {
   return (
     <div class="">
-
-      <div class="my-7 w-5/6">
+      <div class="my-7 w-5/6 px-[30px]">
         <p class="text-xs font-medium text-black_secondary">Welcome back, Bunny!</p>
         <h1 class="text-xl font-medium text-back_primary">What do you want to do read today?</h1>
       </div>
 
       {/* search */}
-      <div class="relative flex items-center">
-        <div class="absolute inset-y-0 start-0 flex items-center ps-5 pointer-events-none">
+      <div class="relative px-[30px] flex items-center">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-12 pointer-events-none">
           <svg class="w-3 h-3 text-[#C4C4C4]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
           </svg>
@@ -28,91 +29,30 @@ export default function Home() {
       </div>
 
       {/* category */}
-      <div class="my-7 flex gap-6 rounded overflow-y-scroll text-xs">
-        <div class="">
-          Novel
-        </div>
-        <div class="border-b-2 border-red_primary">
-          Crime
-        </div>
-        <div class="">
-          Science
-        </div>
-        <div class="">
-          Romance
-        </div>
-        <div class="">
-          History
-        </div>
-        <div class="">
-          Literature
-        </div>
+      <div class="my-7 px-[30px] flex gap-6 rounded overflow-y-scroll text-xs">
+        <For each={categories}>
+          {(item, index) => (
+            <div class={`${index() === 1 && 'border-b-2 border-red_primary'}`}>
+              {item}
+            </div>
+          )}
+        </For>
       </div>
 
 
       {/*Books card */}
-      <div class="mt-3 flex gap-3 overflow-y-scroll">
-        <For each={data.books}>
-          {(item) => (
-            <div class="min-w-32 p-3 bg-white shadow-lg rounded">
-              <img src={image} alt="book cover" class="w-28 h-40 shadow shadow-black/70 rounded" />
-              <div class="mt-3">
-                <p class="truncate text-black_primary font-semibold">{item.title}</p>
-                <p class="text-xs text-black_secondary font-medium truncate">{item.author}</p>
-              </div>
-            </div>
-          )}
-        </For>
-        <div class="w-32 p-3 bg-white shadow-lg rounded">
-          <img src={image} alt="book cover" class="w-full shadow shadow-black/70 rounded" />
-          <div class="mt-3">
-            <p class="truncate text-black_primary font-semibold">Bloodfire Quest</p>
-            <p class="text-xs text-black_secondary font-medium truncate">Terry Brooks</p>
-          </div>
-        </div>
+      <div class="mt-3 px-[30px] flex gap-3 overflow-y-scroll">
+        <ScrollableCard books={data.books} />
       </div>
 
       {/* New Arrivals */}
       <div class="pb-20">
-        <div class="mt-4 mb-3">
+        <div class="mt-4 mb-3 pl-[30px]">
           <p class="text-lg font-bold text-black_primary">New Arrivals</p>
         </div>
-        <div class="mt-3 flex gap-3 overflow-y-scroll">
-          <div class="w-32 p-3 bg-white shadow-lg rounded">
-            <img src={image} alt="book cover" class="w-full shadow shadow-black/70 rounded" />
-            <div class="mt-3">
-              <p class="truncate text-black_primary font-semibold">Bloodfire Quest</p>
-              <p class="text-xs text-black_secondary font-medium truncate">Terry Brooks</p>
-            </div>
-          </div>
-          <div class="w-32 p-3 bg-white shadow-lg rounded">
-            <img src={image} alt="book cover" class="w-full shadow shadow-black/70 rounded" />
-            <div class="mt-3">
-              <p class="truncate text-black_primary font-semibold">Bloodfire Quest</p>
-              <p class="text-xs text-black_secondary font-medium truncate">Terry Brooks</p>
-            </div>
-          </div>
-          <div class="w-32 p-3 bg-white shadow-lg rounded">
-            <img src={image} alt="book cover" class="w-full shadow shadow-black/70 rounded" />
-            <div class="mt-3">
-              <p class="truncate text-black_primary font-semibold">Bloodfire Quest</p>
-              <p class="text-xs text-black_secondary font-medium truncate">Terry Brooks</p>
-            </div>
-          </div>
-          <div class="w-32 p-3 bg-white shadow-lg rounded">
-            <img src={image} alt="book cover" class="w-full shadow shadow-black/70 rounded" />
-            <div class="mt-3">
-              <p class="truncate text-black_primary font-semibold">Bloodfire Quest</p>
-              <p class="text-xs text-black_secondary font-medium truncate">Terry Brooks</p>
-            </div>
-          </div>
-          <div class="w-32 p-3 bg-white shadow-lg rounded">
-            <img src={image} alt="book cover" class="w-full shadow shadow-black/70 rounded" />
-            <div class="mt-3">
-              <p class="truncate text-black_primary font-semibold">Bloodfire Quest</p>
-              <p class="text-xs text-black_secondary font-medium truncate">Terry Brooks</p>
-            </div>
-          </div>
+        {/* books cards */}
+        <div class="mt-3 px-[30px] flex gap-3 overflow-y-scroll">
+          <ScrollableCard books={data.books} />
         </div>
       </div>
 

@@ -1,12 +1,11 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
-
 import "./index.css";
+import { Router, Route } from "@solidjs/router";
+
 import App from "./App";
 import BookDetails from "./pages/BookDetails";
 import ExploreBooks from "./pages/ExploreBooks";
-import BottomNav from "./widgets/BottomNav";
-import { Router, Route } from "@solidjs/router";
 
 const root = document.getElementById("root");
 
