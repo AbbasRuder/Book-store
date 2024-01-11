@@ -1,3 +1,4 @@
+import image from "../assets/book.jpg"
 import { data } from "../../books-data";
 import { useParams } from "@solidjs/router";
 
@@ -14,7 +15,7 @@ export default function BookDetails() {
 
       <div class="sm:px-8 px-2 sm:py-8 flex flex-col sm:flex-row justify-center items-center sm:gap-6 bg-slate-50 rounded shadow-md">
         <img
-          src={selectedBook.image}
+          src={image}
           alt="book cover"
           class="my-8 rounded-xl w-60 h-70 sm:h-96 shadow"
         />

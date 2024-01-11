@@ -4,7 +4,8 @@ import { render } from "solid-js/web";
 import "./index.css";
 import App from "./App";
 import BookDetails from "./pages/BookDetails";
-// import { Router, Route, Routes } from "@solidjs/router";
+import ExploreBooks from "./pages/ExploreBooks";
+import BottomNav from "./widgets/BottomNav";
 import { Router, Route } from "@solidjs/router";
 
 const root = document.getElementById("root");
@@ -19,6 +20,7 @@ render(
   () => (
     <Router>
         <Route path="/" component={App} />
+        <Route path="/explore" component={ExploreBooks} />
         <Route path="/:id" component={BookDetails} />
     </Router>
   ),root

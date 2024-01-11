@@ -1,15 +1,14 @@
 import { data } from "../books-data";
+import TopNav from "./widgets/TopNav";
 import Home from "./pages/Home";
-
+import BottomNav from "./widgets/BottomNav";
+// import image from './assets/book.jpg'
 function App() {
   return (
-    <div class="px-4 sm:px-24 bg-orange-50">
-      <h1 class="px-8 py-8 sm:py-12 ml-5 text-xl sm:text-4xl font-bold underline text-orange-900">
-        Latest Books
-      </h1>
-      <div class='py-4 flex flex-row justify-center flex-wrap gap-5'>
-        <Home books={data.books}/>
-      </div>
+    <div class="relative px-4 py-4 bg-teal-50">
+      <TopNav />
+      <Home/>
+      <BottomNav />
     </div>
   );
 }
