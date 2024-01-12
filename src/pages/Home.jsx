@@ -1,4 +1,3 @@
-import image from "../assets/book.jpg"
 import { data } from "../../books-data";
 import { For } from "solid-js";
 import ScrollableCard from "../widgets/ScrollableCard";
@@ -39,7 +38,6 @@ export default function Home() {
         </For>
       </div>
 
-
       {/*Books card */}
       <div class="mt-3 px-[30px] flex gap-3 overflow-y-scroll">
         <ScrollableCard books={data.books} />
@@ -51,11 +49,10 @@ export default function Home() {
           <p class="text-lg font-bold text-black_primary">New Arrivals</p>
         </div>
         {/* books cards */}
-        <div class="mt-3 px-[30px] flex gap-3 overflow-y-scroll">
+        <div class="mt-3 px-[30px] flex flex-wrap gap-3">
           <ScrollableCard books={data.books} />
         </div>
       </div>
-
     </div>
   )
 }
