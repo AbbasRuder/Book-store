@@ -7,9 +7,9 @@ export default function OnBoardScreen() {
     return (
         <div class='h-screen flex flex-col justify-center items-center gap-10'>
             <img src={svg} class='mx-8' />
-            <div class='mx-10 flex flex-col gap-2 justify-center items-center'>
-                <p class='text-lg font-semibold'>Read your favourite books</p>
-                <p class='text-xs text-center text-black_secondary'>All your favourites book in one place, read any book, staying at home, on travelling, or anywhere else</p>
+            <div class='mx-14 flex flex-col gap-4 justify-center items-center'>
+                <p class='text-2xl font-bold'>Read your favourite books</p>
+                <p class='text-center text-black_secondary'>All your favourites book in one place, read any book, staying at home, on travelling, or anywhere else</p>
             </div>
             <button
                 class='mt-10 py-3 px-14 rounded-lg font-semibold bg-red_primary text-white'

@@ -1,8 +1,101 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html {
+	font-size: 18px;
+}
+
+@media (max-width: 320px) {
+	html {
+		font-size: 11px;
+	}
+}
+
+@media (min-width: 321px) {
+	html {
+		font-size: 13px;
+	}
+}
+
+@media (min-width: 375px) {
+	html {
+		font-size: 14px;
+	}
+}
+
+@media (min-width: 640px) {
+	html {
+		font-size: 15px;
+	}
+}
+
+@media (min-width: 768px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 1024px) {
+	html {
+		font-size: 16px;
+	}
+}
+
+@media (min-width: 1280px) {
+	html {
+		font-size: 16px;
+	}
+}
 
 ::-webkit-scrollbar,
 *::-webkit-scrollbar {
 	display: none;
 }
+
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
+/* make the parent fixed h w and no scroll */
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+/* make the child fixed h w and no scroll x only, to hide scroll bar make w larger that parent and apply padding the extra amount*/
+#root {
+	width: 100vw;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.safe-area-bottom-tab {
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+.remove_scrollBar::-webkit-scrollbar {
+	/* WebKit */
+	width: 0px;
+	display: none;
+}
+
+.onScroll {
+	scroll-behavior: smooth;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

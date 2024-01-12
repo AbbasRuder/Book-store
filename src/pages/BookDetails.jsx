@@ -14,6 +14,7 @@ export default function BookDetails() {
   return (
     <>
       <div class="h-screen mx-8 pt-[50px]">
+        {/* navigation */}
         <div class="flex justify-between">
           <div onClick={() => navigate("/home", { replace: true })}>
             {/* go back icon */}
@@ -27,27 +28,28 @@ export default function BookDetails() {
           </svg>
         </div>
 
+        {/* book details */}
         <div class="flex flex-col justify-center items-center">
           <img
             src={selectedBook.image}
             alt="book cover"
-            class="w-40 rounded-xl shadow-lg shadow-black/20"
+            class="w-44 rounded-xl shadow-lg shadow-black/30"
           />
           <div class="mt-4">
-            <div class="flex flex-col items-center leading-4">
-              <p class="text-lg font-semibold">{selectedBook.title}</p>
+            <div class="flex flex-col items-center">
+              <p class="text-lg font-bold">{selectedBook.title}</p>
               <p class="text-black_secondary">{selectedBook.author}</p>
             </div>
           </div>
         </div>
 
         <div class="mt-8">
-          <span class="text-lg font-semibold">Overview</span>
-          <p class={`mt-1 text-xs leading-5 text-black_secondary ${seeMore() && "line-clamp-5"}`}>
+          <span class="text-lg font-bold">Overview</span>
+          <p class={`mt-1 text-sm leading-5 text-black_secondary ${seeMore() && "line-clamp-5"}`}>
             {selectedBook.summary}
           </p>
           <div
-            class="pb-20 text-xs text-red_primary/70"
+            class="pb-20 text-sm text-red_primary/70"
             onClick={() => setSeeMore(!seeMore())}
           >
             {seeMore() ? "see more" : "see less"}
