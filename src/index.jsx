@@ -7,6 +7,7 @@ import App from "./App";
 import BookDetails from "./pages/BookDetails";
 import ExploreBooks from "./pages/ExploreBooks";
 import OnBoardScreen from "./pages/OnBoardScreen";
+import Cart from "./pages/Cart";
 
 const root = document.getElementById("root");
 
@@ -21,8 +22,9 @@ render(
     <Router>
       <Route path="/" component={OnBoardScreen} />
       <Route path="/home" component={App} />
-      <Route path="/explore" component={ExploreBooks} />
+      {/* <Route path="/explore" component={ExploreBooks} /> */}
       <Route path="/:id" component={BookDetails} />
+      <Route path="/cart" component={Cart} />
     </Router>
   ), root
 );

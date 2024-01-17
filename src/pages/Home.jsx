@@ -1,4 +1,4 @@
-import { data } from "../../books-data";
+import { data } from "../books-data";
 import { For } from "solid-js";
 import ScrollableCard from "../widgets/ScrollableCard";
 
@@ -40,7 +40,17 @@ export default function Home() {
 
       {/*Books card */}
       <div class="mt-3 px-[20px] flex gap-3 overflow-y-scroll">
-        <ScrollableCard books={data.books} />
+        <For each={data.books}>
+          {item => (
+            <ScrollableCard
+              image={item.image}
+              title={item.title}
+              author={item.author}
+              ISBN={item.ISBN}
+              price={item.price}
+            />
+          )}
+        </For>
       </div>
 
       {/* New Arrivals */}
@@ -49,8 +59,18 @@ export default function Home() {
           <p class="text-2xl font-bold text-black_primary">New Arrivals</p>
         </div>
         {/* books cards */}
-        <div class="mt-3 px-[20px] flex flex-wrap justify-center gap-3">
-          <ScrollableCard books={data.books} />
+        <div class="mt-3 px-[20px] flex flex-wrap gap-3">
+          <For each={data.books} class='relative'>
+            {item => (
+              <ScrollableCard
+                image={item.image}
+                title={item.title}
+                author={item.author}
+                ISBN={item.ISBN}
+                price={item.price}
+              />
+            )}
+          </For>
         </div>
       </div>
     </div>

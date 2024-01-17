@@ -1,5 +1,5 @@
 import image from "../assets/book.jpg"
-import { data } from "../../books-data";
+import { data } from "../books-data";
 import { useParams } from "@solidjs/router";
 import { useNavigate } from "@solidjs/router";
 import { createSignal } from "solid-js";
@@ -31,7 +31,8 @@ export default function BookDetails() {
         {/* book details */}
         <div class="flex flex-col justify-center items-center">
           <img
-            src={selectedBook.image}
+            // src={selectedBook.image}
+            src={image}
             alt="book cover"
             class="w-44 rounded-xl shadow-lg shadow-black/30"
           />
