@@ -42,13 +42,15 @@ export default function Home() {
       <div class="mt-3 px-[20px] flex gap-3 overflow-y-scroll">
         <For each={data.books}>
           {item => (
-            <ScrollableCard
-              image={item.image}
-              title={item.title}
-              author={item.author}
-              ISBN={item.ISBN}
-              price={item.price}
-            />
+            <div class="min-w-48 py-3 px-2 grow bg-white shadow-lg rounded">
+              <ScrollableCard
+                image={item.image}
+                title={item.title}
+                author={item.author}
+                ISBN={item.ISBN}
+                price={item.price}
+              />
+            </div>
           )}
         </For>
       </div>
@@ -59,16 +61,18 @@ export default function Home() {
           <p class="text-2xl font-bold text-black_primary">New Arrivals</p>
         </div>
         {/* books cards */}
-        <div class="mt-3 px-[20px] flex flex-wrap gap-3">
+        <div class="mt-3 px-[20px] w-full grid grid-cols-2 gap-2 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
           <For each={data.books} class='relative'>
             {item => (
-              <ScrollableCard
-                image={item.image}
-                title={item.title}
-                author={item.author}
-                ISBN={item.ISBN}
-                price={item.price}
-              />
+              <div class="min-w-[130px] py-3 px-2 grow bg-white shadow-lg rounded">
+                <ScrollableCard
+                  image={item.image}
+                  title={item.title}
+                  author={item.author}
+                  ISBN={item.ISBN}
+                  price={item.price}
+                />
+              </div>
             )}
           </For>
         </div>
