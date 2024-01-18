@@ -3,5 +3,6 @@
 import { createStore } from "solid-js/store"
 
 const [cart, setCart] = createStore([])
+const [bookmark, setBookmark] = createStore([])
 
-export { cart, setCart }
+export { cart, setCart, bookmark, setBookmark }

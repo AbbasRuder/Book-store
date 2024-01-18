@@ -1,13 +1,13 @@
-import profile from '../assets/profile.png'
+import icon from '../assets/book-icon2.png'
 import { A } from '@solidjs/router'
 
 export default function TopNav() {
     return (
         <div class="px-[20px] pt-[50px] flex justify-between">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
-                class="w-7 h-7">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-            </svg>
+            <div class='flex items-center gap-2'>
+                <img src={icon} alt="" class='w-8 h-8' />
+                <p class='text-xl font-bold'>Bookify</p>
+            </div>
 
             <div class="flex gap-5 justify-center items-center">
                 <A href='/cart'>

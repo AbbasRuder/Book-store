@@ -41,7 +41,7 @@ export default function Cart() {
             viewBox="0 0 24 24"
             stroke-width="1"
             stroke="currentColor"
-            class="w-5 h-5"
+            class="w-5 h-5 cursor-pointer"
           >
             <path
               stroke-linecap="round"
