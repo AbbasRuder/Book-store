@@ -1,7 +1,8 @@
 import { A } from "@solidjs/router"
-
+import { newBookmarkAdded } from "../store"
 
 export default function BottomNav() {
+
   return (
     <div class="fixed bottom-0 left-0 right-0 rounded-t-3xl bg-white shadow-2xl shadow-black">
       <div class="py-6 px-6 flex justify-around items-center">
@@ -24,10 +25,12 @@ export default function BottomNav() {
 
         <div>
           {/* bookmark icon */}
-          <A href="/bookmark">
+          <A href="/bookmark" class="relative">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 cursor-pointer text-black_secondary">
               <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
             </svg>
+            <div class={`${newBookmarkAdded() && 'absolute top-0 right-0 w-2 h-2 rounded-full bg-red-500'}`}>
+            </div>
           </A>
         </div>
 

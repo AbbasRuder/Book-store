@@ -1,11 +1,13 @@
 import { For } from "solid-js"
 import { useNavigate } from "@solidjs/router"
-import { bookmark } from "../store"
+import { bookmark, setNewBookmarkAdded } from "../store"
 import ScrollableCard from "../widgets/ScrollableCard"
 import BottomNav from "../widgets/BottomNav"
 
 export default function Bookmarks() {
     const navigate = useNavigate()
+    setNewBookmarkAdded(false)
+
     return (
         <>
             <div class="px-[20px] pt-[50px]">
@@ -29,28 +31,32 @@ export default function Bookmarks() {
                     </div>
                     <p class="text-2xl font-semibold">Bookmarks</p>
                 </div>
-                <div class="mt-6 pb-24 w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
-                    <For each={bookmark}>
-                        {item => (
-                            <div class="min-w-44 py-3 px-2 grow bg-white bg-slate-200 shadow-lg rounded">
-                                <ScrollableCard
-                                    image={item.image}
-                                    title={item.title}
-                                    author={item.author}
-                                    ISBN={item.ISBN}
-                                    price={item.price}
-                                />
-                            </div>
-                        )}
-                    </For>
-                </div>
-            </div>
-            {bookmark.length === 0 && (
-                <div class="px-[20px] text-lg">
-                    No Bookmarks added yet.
-              </div>
-            )}
-            <BottomNav />
+                {bookmark.length === 0 ?
+                    (
+                        <div class="mt-6 text-lg">
+                            No Bookmarks added yet.
+                        </div>
+                    ) :
+                    (
+                        <div class="mt-6 pb-24 w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
+                            <For each={bookmark}>
+                                {item => (
+                                    <div class="min-w-44 py-3 px-2 grow bg-white bg-slate-200 shadow-lg rounded">
+                                        <ScrollableCard
+                                            image={item.image}
+                                            title={item.title}
+                                            author={item.author}
+                                            ISBN={item.ISBN}
+                                            price={item.price}
+                                        />
+                                    </div>
+                                )}
+                            </For>
+                        </div>
+                    )
+                }
+            </div >
+            < BottomNav />
         </>
     )
 }

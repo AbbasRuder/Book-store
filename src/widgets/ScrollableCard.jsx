@@ -1,31 +1,44 @@
-import { A } from "@solidjs/router";
-import image from "../assets/book.jpg";
-import { createSignal } from "solid-js";
-import { cart, setCart, bookmark, setBookmark } from "../store";
+import { A } from "@solidjs/router"
+import image from "../assets/book.jpg"
+import { createSignal } from "solid-js"
+import {
+  cart,
+  setCart,
+  setNewCartAdded,
+  bookmark,
+  setBookmark,
+  setNewBookmarkAdded,
+} from "../store"
 
 export default function ScrollableCard(props) {
-  const book = cart.filter(item => item.title === props.title)
+  const book = cart.filter((item) => item.title === props.title)
   const initialState = book[0] !== undefined
-  const [showCart, setShowCart] = createSignal(initialState);
-  const bookmarkedBooks = bookmark.filter(item => item.ISBN === props.ISBN)
+  const [showCart, setShowCart] = createSignal(initialState) //-for toggling the add-cart/remove cart icon
+  const bookmarkedBooks = bookmark.filter((item) => item.ISBN === props.ISBN)
   const BMinitialState = bookmarkedBooks[0] !== undefined
-  const [isBookmarked, setIsBookmarked] = createSignal(BMinitialState)
+  const [isBookmarked, setIsBookmarked] = createSignal(BMinitialState) //-for coloring the bookmark icon
 
   const addToCart = () => {
-    setShowCart(!showCart());
-    setCart(oldCart => [...oldCart, { ...props, quantity: 1 }]);
-  };
+    setShowCart(!showCart())
+    setCart((oldCart) => [...oldCart, { ...props, quantity: 1 }])
+    setNewCartAdded(true)
+  }
 
   const deleteFromCart = () => {
-    setShowCart(!showCart());
-    setCart(oldCart => oldCart.filter(item => item.ISBN !== props.ISBN));
+    setShowCart(!showCart())
+    setCart((oldCart) => oldCart.filter((item) => item.ISBN !== props.ISBN))
+    // setNewCartAdded(false)
   }
 
   const handleBookmark = () => {
-    if(isBookmarked()) {
-      setBookmark(bookmarks => bookmarks.filter(item => item.ISBN !== props.ISBN))
+    if (isBookmarked()) {
+      setBookmark((bookmarks) =>
+        bookmarks.filter((item) => item.ISBN !== props.ISBN)
+      )
+      // setNewBookmarkAdded(false)
     } else {
-      setBookmark(bookmarks => [...bookmarks, {...props}])
+      setBookmark((bookmarks) => [...bookmarks, { ...props }])
+      setNewBookmarkAdded(true)
     }
     setIsBookmarked(!isBookmarked())
   }
@@ -44,7 +57,9 @@ export default function ScrollableCard(props) {
         <p class="text-sm text-black_secondary font-medium truncate">
           {props.author}
         </p>
-        <p class="h-[33px] w-4/5 text-black_primary leading-4 font-semibold">{props.title}</p>
+        <p class="h-[33px] w-4/5 text-black_primary leading-4 font-semibold">
+          {props.title}
+        </p>
       </div>
       <div class="ml-2 flex justify-between items-center">
         <p class="text-lg font-semibold">{`${props.price.value}$`}</p>
@@ -81,14 +96,23 @@ export default function ScrollableCard(props) {
             </svg>
           )}
           {/* bookmark icon */}
-          <svg xmlns="http://www.w3.org/2000/svg" fill={`${isBookmarked() ? 'currentcolor' : 'none'}`} viewBox="0 0 24 24" stroke-width="1" stroke="currentColor"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill={`${isBookmarked() ? "currentcolor" : "none"}`}
+            viewBox="0 0 24 24"
+            stroke-width="1"
+            stroke="currentColor"
             class={`w-8 h-8 cursor-pointer text-red_primary`}
             onClick={handleBookmark}
           >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+            />
           </svg>
         </div>
       </div>
     </>
-  );
+  )
 }

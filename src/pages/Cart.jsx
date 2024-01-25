@@ -1,19 +1,20 @@
-import { cart, setCart } from "../store";
+import { cart, setCart, setNewBookmarkAdded } from "../store";
 import image from "../assets/book.jpg";
 import { For, createSignal, createEffect } from "solid-js";
 import { A } from "@solidjs/router";
 import { useNavigate } from "@solidjs/router";
+import { setNewCartAdded } from "../store";
 
 export default function Cart() {
   const [total, setTotal] = createSignal();
   const navigate = useNavigate()
+  setNewCartAdded(false)
 
   function updateQuantity(index, amount) {
-    // console.log('clicked', cart)
     setCart(oldCart => {
       let newCart = [...oldCart];
       let itemCopy = {...newCart[index]};
-      console.log({...newCart[index]})
+      // console.log({...newCart[index]})
       itemCopy.quantity += amount;
       if(itemCopy.quantity < 1) itemCopy.quantity = 1
       newCart[index] = itemCopy;
