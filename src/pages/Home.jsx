@@ -2,7 +2,7 @@ import { data } from "../books-data";
 import { For } from "solid-js";
 import ScrollableCard from "../widgets/ScrollableCard";
 
-const categories = ['Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature']
+const categories = ['Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature', 'Fiction', 'Comedy']
 
 export default function Home() {
   return (
@@ -27,17 +27,10 @@ export default function Home() {
         />
       </div>
 
-      {/* category */}
-      <div class="my-7 px-[20px] flex gap-6 rounded overflow-y-scroll">
-        <For each={categories}>
-          {(item, index) => (
-            <div class={`${index() === 1 && 'border-b-2 border-red_primary'}`}>
-              {item}
-            </div>
-          )}
-        </For>
+      {/* Free books */}
+      <div class="mt-4 pl-[20px]">
+        <p class="text-2xl font-bold text-black_primary">Free for you</p>
       </div>
-
       {/*Books card */}
       <div class="mt-3 px-[20px] flex gap-3 overflow-y-scroll">
         <For each={data.books}>
@@ -55,10 +48,20 @@ export default function Home() {
         </For>
       </div>
 
-      {/* New Arrivals */}
-      <div class="pb-20">
-        <div class="mt-4 mb-3 pl-[20px]">
-          <p class="text-2xl font-bold text-black_primary">New Arrivals</p>
+      <div class="pb-24">
+        {/* Free books */}
+        <div class="mt-4 pl-[20px]">
+          <p class="text-2xl font-bold text-black_primary">Discover</p>
+        </div>
+        {/* category */}
+        <div class="mt-3 px-[20px] flex gap-6 rounded overflow-y-scroll">
+          <For each={categories}>
+            {(item, index) => (
+              <div class={`cursor-pointer ${index() === 1 && 'border-b-2 border-red_primary'}`}>
+                {item}
+              </div>
+            )}
+          </For>
         </div>
         {/* books cards */}
         <div class="mt-3 px-[20px] w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">

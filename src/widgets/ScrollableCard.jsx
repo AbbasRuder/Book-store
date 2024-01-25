@@ -70,7 +70,7 @@ export default function ScrollableCard(props) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              class="w-8 h-8 float-right cursor-pointer text-red_primary bg-white rounded-full"
+              class="w-8 h-8 cursor-pointer text-red_primary bg-white rounded-full"
               onClick={addToCart}
             >
               <path
