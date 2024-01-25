@@ -62,7 +62,9 @@ export default function ScrollableCard(props) {
         </p>
       </div>
       <div class="ml-2 flex justify-between items-center">
-        <p class="text-lg font-semibold">{`${props.price.value}$`}</p>
+        <p class={`text-lg font-semibold ${props.price === "Free" ? 'text-green-600' : 'text-red_primary'}`}>
+          {props.price}
+        </p>
         <div class="flex items-center gap-2">
           {showCart() ? (
             // cross icon

@@ -23,7 +23,7 @@ render(
     <Router>
       <Route path="/" component={OnBoardScreen} />
       <Route path="/home" component={App} />
-      {/* <Route path="/explore" component={ExploreBooks} /> */}
+      <Route path="/explore" component={ExploreBooks} />
       <Route path="/:id" component={BookDetails} />
       <Route path="/cart" component={Cart} />
       <Route path="/bookmark" component={Bookmarks} />
