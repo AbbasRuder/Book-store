@@ -4,6 +4,7 @@ import { createStore } from "solid-js/store"
 
 const [cart, setCart] = createStore([])
 const [bookmark, setBookmark] = createStore([])
+const [subscribedBooks, setSubscribedBooks] = createStore([])
 
 const [newCartAdded, setNewCartAdded] = createSignal(false)
 const [newBookmarkAdded, setNewBookmarkAdded] = createSignal(false)
@@ -16,5 +17,7 @@ export {
     newBookmarkAdded,
     setNewBookmarkAdded,
     newCartAdded,
-    setNewCartAdded
+    setNewCartAdded,
+    subscribedBooks,
+    setSubscribedBooks
 }

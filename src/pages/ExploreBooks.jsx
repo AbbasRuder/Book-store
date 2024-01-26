@@ -1,4 +1,5 @@
 import { data } from "../books-data"
+import { subscribedBooks } from "../store"
 import { createSignal } from "solid-js"
 import { useNavigate } from "@solidjs/router"
 import not_Found_img from '../assets/book-not-found.svg'
@@ -19,6 +20,8 @@ const genres = [
 ]
 
 export default function ExploreBooks() {
+  // const [allBooks] = createSignal([...subscribedBooks]);
+  // const [filteredBooks, setFilteredBooks] = createSignal([...subscribedBooks]);
   const [allBooks] = createSignal([...data.books]);
   const [filteredBooks, setFilteredBooks] = createSignal([...data.books]);
   const [selectedGenre, setSelectedGenre] = createSignal("All");
