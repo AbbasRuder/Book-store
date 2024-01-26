@@ -1,10 +1,28 @@
 import { data } from "../books-data";
-import { For } from "solid-js";
+import { For, createSignal } from "solid-js";
 import ScrollableCard from "../widgets/ScrollableCard";
 
-const categories = ['Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature', 'Fiction', 'Comedy']
+const categories = ['All','Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature', 'Fiction', 'Comedy']
 
 export default function Home() {
+  const [filteredBooks, setFilteredBooks] = createSignal([...data.books]);
+  const [selectedGenre, setSelectedGenre] = createSignal("All");
+
+  const freeBooks = data.books.filter(book => book.type === 'Free')
+
+  const filterBooksByGenre = (selectedGenre) => {
+    setSelectedGenre(selectedGenre)
+    let filterBooks = []
+
+    if(selectedGenre === 'All') {
+      filterBooks = [...data.books]
+    } else {
+      filterBooks = data.books.filter(book => book.genres.includes(selectedGenre))
+    }
+
+    setFilteredBooks(filterBooks)
+  }
+
   return (
     <div class="">
       <div class="my-7 w-5/6 px-[20px]">
@@ -33,7 +51,7 @@ export default function Home() {
       </div>
       {/*Books card */}
       <div class="mt-3 px-[20px] flex gap-3 overflow-y-scroll">
-        <For each={data.books}>
+        <For each={freeBooks}>
           {item => (
             <div class="min-w-48 py-3 px-2 grow bg-white shadow-lg rounded">
               <ScrollableCard
@@ -49,23 +67,25 @@ export default function Home() {
       </div>
 
       <div class="pb-24">
-        {/* Free books */}
+        {/* All books */}
         <div class="mt-4 pl-[20px]">
           <p class="text-2xl font-bold text-black_primary">Discover</p>
         </div>
-        {/* category */}
+        {/* Category */}
         <div class="mt-3 px-[20px] flex gap-6 rounded overflow-y-scroll">
           <For each={categories}>
             {(item, index) => (
-              <div class={`cursor-pointer ${index() === 1 && 'border-b-2 border-red_primary'}`}>
+              <div
+                onClick={() => filterBooksByGenre(item)}
+                class={`cursor-pointer ${item === selectedGenre() && 'border-b-2 border-red_primary'}`}>
                 {item}
               </div>
             )}
           </For>
         </div>
-        {/* books cards */}
+        {/* Books cards */}
         <div class="mt-3 px-[20px] w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
-          <For each={data.books}>
+          <For each={filteredBooks()}>
             {item => (
               <div class="min-w-44 py-3 px-2 grow bg-white shadow-lg rounded">
                 <ScrollableCard
