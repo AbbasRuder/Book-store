@@ -27,8 +27,12 @@ export default function Cart() {
   }
 
   createEffect(() => {
-    const newTotal = cart.reduce((acc, item) => acc + item.price.value * item.quantity, 0);
-    setTotal(parseFloat(newTotal.toFixed(2)))
+    const newTotal = cart.reduce((acc, item) => {
+      const itemPrice = item.price === "Free" ? 0 : parseInt(item.price);
+      return acc + itemPrice * item.quantity
+    }, 0);
+
+    setTotal(newTotal)
   })
 
   return (
@@ -73,7 +77,9 @@ export default function Cart() {
                     <p class="text-sm text-black_secondary font-medium truncate">
                       {item.author}
                     </p>
-                    <p class="text-lg font-semibold">{(item.price.value * item.quantity).toFixed(2)}</p>
+                    <p class="text-lg font-semibold">
+                      {item.price === "Free" ? item.price : `₹ ${(parseInt(item.price) * item.quantity)}`}
+                    </p>
                   </div>
                   <div class="mt-4 flex items-center gap-8">
                     <div class="flex items-center border-gray-100">
@@ -111,10 +117,10 @@ export default function Cart() {
           No items added.
         </div>
       ) : (
-        <div class="mt-6 border-t text-lg font-semibold">
+        <div class="my-6 border-t text-lg font-semibold">
           <div class="mt-3">
             <span class="">Total</span>
-            <span class="float-right">{`$ ${total()}`}</span>
+            <span class="float-right">{`₹ ${total()}`}</span>
           </div>
         </div>)}
     </div>

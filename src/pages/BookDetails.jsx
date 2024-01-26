@@ -3,7 +3,7 @@ import { data } from "../books-data"
 import { bookmark, setBookmark, setNewBookmarkAdded } from "../store"
 import { useParams } from "@solidjs/router"
 import { useNavigate } from "@solidjs/router"
-import { createSignal } from "solid-js"
+import { For, createSignal } from "solid-js"
 
 export default function BookDetails() {
   const [seeMore, setSeeMore] = createSignal(true)
@@ -92,6 +92,15 @@ export default function BookDetails() {
         </div>
 
         <div class="mt-8">
+          <div class="flex gap-1">
+            <For each={selectedBook.genres}>
+              {(genre) => (
+                <div class="text-xs px-2 py-1 rounded-full border border-gray-60">
+                  {genre}
+                </div>
+              )}
+            </For>
+          </div>
           <span class="text-lg font-bold">Overview</span>
           <p
             class={`mt-1 text-sm leading-5 text-black_secondary ${
@@ -136,11 +145,13 @@ export default function BookDetails() {
           </div>
         </div>
       </div>
-      <div class="fixed w-full pb-4 bottom-0 flex gap-2 justify-center items-center text-xs bg-white">
-        <button class="w-32 py-3 rounded-lg font-semibold text-lg text-white bg-red_primary">
-          Buy for ₹20
+      {selectedBook.type !== 'Free' && (
+      <div class="fixed pb-4 flex w-full bottom-0 text-xs bg-slate-100">
+        <button class="py-3 px-8 mx-auto rounded-lg font-semibold text-lg text-white bg-red_primary">
+          Buy for ₹{selectedBook.price}
         </button>
       </div>
+      )}
     </>
   )
 }
