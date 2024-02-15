@@ -26,20 +26,20 @@ export default function Home() {
   return (
     <div class="">
       <div class="my-7 w-5/6 px-[20px]">
-        <p class="font-medium text-black_secondary">Welcome back, Bunny!</p>
-        <h1 class="text-3xl font-medium text-back_primary">What do you want to read today?</h1>
+        <p class="font-medium text-dark-primary">Welcome back, Bunny!</p>
+        <h1 class="text-3xl font-medium">What do you want to read today?</h1>
       </div>
 
       {/* search */}
       <div class="relative px-[20px] flex items-center">
         <div class="absolute inset-y-0 start-0 flex items-center ps-10 pointer-events-none">
-          <svg class="w-4 h-4 text-[#C4C4C4]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <svg class="w-4 h-4 text-dark-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
           </svg>
         </div>
         <input
           type="search"
-          class="block w-full p-2 ps-10 outline-none rounded-lg bg-[#C4C4C426]/15"
+          class="block w-full p-2 ps-10 outline-none rounded-lg bg-dark-secondary/15 shadow-sm"
           placeholder="Search"
           required
         />
@@ -47,7 +47,7 @@ export default function Home() {
 
       {/* Free books */}
       <div class="mt-4 pl-[20px]">
-        <p class="text-2xl font-bold text-black_primary">Free for you</p>
+        <p class="text-2xl font-bold">Free for you</p>
       </div>
       {/*Books card */}
       <div class="mt-3 px-[20px] flex gap-3 overflow-y-scroll">
@@ -69,7 +69,7 @@ export default function Home() {
       <div class="pb-24">
         {/* Discover */}
         <div class="mt-4 pl-[20px]">
-          <p class="text-2xl font-bold text-black_primary">Discover</p>
+          <p class="text-2xl font-bold">Discover</p>
         </div>
         {/* Category tags */}
         <div class="mt-4 px-[20px] flex gap-6 rounded overflow-y-scroll">
@@ -77,7 +77,7 @@ export default function Home() {
             {(item) => (
               <div
                 onClick={() => filterBooksByGenre(item)}
-                class={`cursor-pointer ${item === selectedGenre() && 'border-b-2 border-red_primary'}`}>
+                class={`cursor-pointer ${item === selectedGenre() && 'border-b-2 border-primary'}`}>
                 {item}
               </div>
             )}

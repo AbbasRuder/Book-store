@@ -10,7 +10,7 @@ export default function Bookmarks() {
     return (
         <>
             <div class="px-[20px] pt-[20px]">
-                <p class="text-2xl font-bold text-black_primary">Bookmarks</p>
+                <p class="text-2xl font-bold">Bookmarks</p>
                 {bookmark.length === 0 ?
                     (
                         <div class="mt-6 text-lg">

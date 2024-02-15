@@ -54,15 +54,15 @@ export default function BookCard(props) {
       </A>
 
       <div class="mt-3 ml-2">
-        <p class="text-sm text-black_secondary font-medium truncate">
+        <p class="text-sm text-dark-secondary font-medium truncate">
           {props.author}
         </p>
-        <p class="h-[33px] w-4/5 text-black_primary leading-4 font-semibold">
+        <p class="h-[33px] w-4/5 leading-4 font-semibold">
           {props.title}
         </p>
       </div>
       <div class="ml-2 flex justify-between items-center">
-        <p class={`text-lg font-semibold ${props.price === "Free" ? 'text-green-600' : 'text-red_primary'}`}>
+        <p class={`text-lg font-semibold ${props.price === "Free" ? 'text-secondary' : 'text-primary'}`}>
           {props.price !== "Free" && '₹'}{props.price}
         </p>
         <div class="flex items-center gap-2">
@@ -87,7 +87,7 @@ export default function BookCard(props) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="currentColor"
-              class="w-8 h-8 cursor-pointer text-red_primary bg-white rounded-full"
+              class="w-8 h-8 cursor-pointer text-primary bg-white rounded-full"
               onClick={addToCart}
             >
               <path
@@ -104,7 +104,7 @@ export default function BookCard(props) {
             viewBox="0 0 24 24"
             stroke-width="1"
             stroke="currentColor"
-            class={`w-8 h-8 cursor-pointer text-red_primary`}
+            class={`w-8 h-8 cursor-pointer text-primary`}
             onClick={handleBookmark}
           >
             <path

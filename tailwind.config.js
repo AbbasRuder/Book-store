@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     screens: {
       'xs': '535px',
-      
+
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
@@ -24,13 +24,32 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: '#fdfdfd',
-        black_primary: '#19191B',
-        black_secondary: '#9D9D9D',
-        red_primary: '#D45555'
+        primary: '#D45555',
+        secondary: '#16a34a',
+        'dark-primary': '#9D9D9D',
+        'dark-secondary': '#C4C4C4'
       },
     },
   },
-  plugins: [],
+
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#D45555",
+          secondary: "#FFEBE5",
+          accent: "#CE2909",
+          neutral: "#F9FAFC",
+          "base-100": "#ffffff",
+          info: "#0ea5e9",
+          success: "#16a34a",
+          warning: "#FEAF18",
+          error: "#dc2626",
+        },
+      },
+    ],
+  },
+
+  plugins: [require("daisyui")],
 }
 

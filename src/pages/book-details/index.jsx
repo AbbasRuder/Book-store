@@ -61,23 +61,16 @@ export default function BookDetails() {
                     <div onClick={() => navigate(-1, { replace: true })}>
                         {/* go back icon */}
                         <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1"
-                            stroke="currentColor"
-                            class="cursor-pointer w-8 h-8"
+                            viewBox="0 0 512 512"
+                            fill="currentColor"
+                            class="w-8 h-8 cursor-pointer"
                         >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                            />
+                            <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm62.63 304L296 374.63 177.37 256 296 137.37 318.63 160l-96 96z" />
                         </svg>
                     </div>
                     {/* bookmark icon */}
                     <div
-                        class="cursor-pointer w-8 h-8 text-red_primary"
+                        class="cursor-pointer w-8 h-8 text-primary"
                         onClick={handleBookmark}
                     >
                         <svg
@@ -107,7 +100,7 @@ export default function BookDetails() {
                     <div class="mt-4">
                         <div class="flex flex-col items-center">
                             <p class="text-lg font-bold">{selectedBook.title}</p>
-                            <p class="text-black_secondary">{selectedBook.author}</p>
+                            <p class="text-dark-primary">{selectedBook.author}</p>
                         </div>
                     </div>
                 </div>
@@ -124,25 +117,25 @@ export default function BookDetails() {
                     </div>
                     <span class="text-lg font-bold">Overview</span>
                     <p
-                        class={`mt-1 text-sm leading-5 text-black_secondary ${seeMore() && "line-clamp-5"
+                        class={`mt-1 text-sm leading-5 text-dark-primary ${seeMore() && "line-clamp-5"
                             }`}
                     >
                         {selectedBook.summary}
                     </p>
                     <div
-                        class="text-sm text-red_primary/70 cursor-pointer"
+                        class="text-sm text-primary/70 cursor-pointer"
                         onClick={() => setSeeMore(!seeMore())}
                     >
                         {seeMore() ? "see more" : "see less"}
                     </div>
                     {isSubscribed() && (
                         <div class="mt-4 flex gap-3">
-                            <div class="w-20 py-1 px-2 flex items-center gap-1 cursor-pointer bg-amber-400 rounded">
+                            <div class="w-20 py-1 px-2 flex items-center gap-1 cursor-pointer bg-secondary/70 rounded">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    class="mt-1 w-5 h-4"
+                                    class="w-5 h-4"
                                 >
                                     <path
                                         fill-rule="evenodd"
@@ -150,28 +143,28 @@ export default function BookDetails() {
                                         clip-rule="evenodd"
                                     />
                                 </svg>
-                                <p class="font-semibold">Listen</p>
+                                <p class="font-medium">Listen</p>
                             </div>
-                            <div class="w-20 py-1 px-2 flex items-center gap-1 cursor-pointer bg-amber-400 rounded">
+                            <div class="w-20 py-1 px-2 flex items-center gap-1 cursor-pointer bg-secondary/70 rounded">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 0 24 24"
                                     fill="currentColor"
-                                    class="mt-1 w-5 h-4.5"
+                                    class="w-5 h-4.5"
                                 >
                                     <path d="M11.25 4.533A9.707 9.707 0 0 0 6 3a9.735 9.735 0 0 0-3.25.555.75.75 0 0 0-.5.707v14.25a.75.75 0 0 0 1 .707A8.237 8.237 0 0 1 6 18.75c1.995 0 3.823.707 5.25 1.886V4.533ZM12.75 20.636A8.214 8.214 0 0 1 18 18.75c.966 0 1.89.166 2.75.47a.75.75 0 0 0 1-.708V4.262a.75.75 0 0 0-.5-.707A9.735 9.735 0 0 0 18 3a9.707 9.707 0 0 0-5.25 1.533v16.103Z" />
                                 </svg>
-                                <p class="font-semibold">Read</p>
+                                <p class="font-medium">Read</p>
                             </div>
                         </div>
                     )}
                 </div>
             </div>
 
-            <div class="fixed pb-4 flex w-full bottom-0 text-xs bg-slate-100">
+            <div class="fixed pb-4 flex w-full bottom-0 text-xs">
                 <button
                     onClick={handleBookSubscription}
-                    class="py-3 px-8 mx-auto rounded-lg font-semibold text-lg text-white bg-red_primary"
+                    class="py-3 px-8 mx-auto rounded-lg font-semibold text-lg text-white bg-primary"
                 >
                     {isSubscribed()
                         ? "Subscribed"

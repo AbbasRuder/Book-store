@@ -10,6 +10,11 @@ import OnBoardScreen from "./pages/on-board-screen";
 import Cart from "./pages/cart";
 import Bookmarks from "./pages/bookmarks";
 import Profile from "./pages/profile";
+import Login from "./pages/auth/login";
+import SignUp from "./pages/auth/sign-up";
+import SendOTP from "./pages/auth/send-otp";
+import VerifyOTP from "./pages/auth/verify-otp";
+import ChangePassword from "./pages/auth/change-password";
 
 const root = document.getElementById("root");
 
@@ -23,6 +28,12 @@ render(
   () => (
     <Router>
       <Route path="/" component={OnBoardScreen} />
+      <Route path="/login" component={Login} />      
+      <Route path="/signup" component={SignUp} />    
+      <Route path="/send-otp" component={SendOTP} />
+      <Route path="/verify-otp" component={VerifyOTP} />
+      <Route path="/change-password" component={ChangePassword} />
+
       <Route path="/home" component={App} />
       <Route path="/explore" component={ExploreBooks} />
       <Route path="/:id" component={BookDetails} />

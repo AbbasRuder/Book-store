@@ -52,11 +52,11 @@ export default function ExploreBooks() {
     <>
       <div class="px-[20px] pt-[20px]">
         <div class="flex justify-between items-center">
-          <p class="text-2xl font-bold text-black_primary">Explore</p>
+          <p class="text-2xl font-bold">Explore</p>
 
           {/* Filter (free/paid) */}
           <select
-            class="p-2 border border-gray-300 bg-gray-50 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500"
+            class="p-2 border border-dark-secondary  text-sm rounded-lg focus:ring-primary focus:border-primary cursor-pointer"
             onChange={(e) => filterBooksByPriceType(e.target.value)}
           >
             <option value="All" selected>
@@ -73,7 +73,7 @@ export default function ExploreBooks() {
             {(item) => (
               <div
                 onClick={() => filterBooksByGenre(item)}
-                class={`cursor-pointer ${selectedGenre() === item && "border-b-2 border-red_primary"
+                class={`cursor-pointer ${selectedGenre() === item && "border-b-2 border-primary"
                   }`}
               >
                 {item}
