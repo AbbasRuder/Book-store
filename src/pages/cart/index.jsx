@@ -64,7 +64,7 @@ export default function Cart() {
               <div class="min-w-[128px] flex py-3 px-2 grow bg-white shadow-lg rounded">
                 <A href={`/${item.ISBN}`} class="relative">
                   <img
-                    src={image}
+                    src={item.image}
                     alt="book cover"
                     class="w-26 h-44 mx-auto shadow shadow-black rounded"
                   />

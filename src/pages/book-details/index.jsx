@@ -99,8 +99,8 @@ export default function BookDetails() {
                 {/* book details */}
                 <div class="flex flex-col justify-center items-center">
                     <img
-                        // src={selectedBook.image}
-                        src={image}
+                        src={selectedBook.image}
+                        // src={image}
                         alt="book cover"
                         class="w-44 rounded-xl shadow-lg shadow-black/30"
                     />

@@ -47,7 +47,7 @@ export default function BookCard(props) {
     <>
       <A href={`/${props.ISBN}`} class="relative">
         <img
-          src={image}
+          src={props.image}
           alt="book cover"
           class="w-26 h-40 sm:h-52 mx-auto shadow shadow-black/70 rounded"
         />
