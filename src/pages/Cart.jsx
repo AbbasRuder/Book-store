@@ -1,9 +1,8 @@
-import { cart, setCart, setNewBookmarkAdded } from "../store";
+import { cart, setCart,setNewCartAdded } from "../store";
 import image from "../assets/book.jpg";
 import { For, createSignal, createEffect } from "solid-js";
-import { A } from "@solidjs/router";
-import { useNavigate } from "@solidjs/router";
-import { setNewCartAdded } from "../store";
+import { A, useNavigate } from "@solidjs/router";
+import emptyCart from "../assets/Empty-cartoon.png"
 
 export default function Cart() {
   const [total, setTotal] = createSignal();
@@ -89,7 +88,7 @@ export default function Cart() {
                       >
                         -
                       </span>
-                      <input class="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" value={item.quantity} min="1" />
+                      <p class="mx-2 text-xs">{item.quantity}</p>
                       <span
                         class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
                         onClick={() => updateQuantity(index(), 1)}
@@ -98,7 +97,8 @@ export default function Cart() {
                       </span>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 text-red_primary"
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" 
+                      class="w-6 h-6 cursor-pointer text-red_primary"
                       onClick={() => handleDeleteItem(item)}
                     >
                       <path d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z" />
@@ -113,8 +113,9 @@ export default function Cart() {
       </div>
 
       {cart.length === 0 ? (
-        <div class="text-lg">
-          No items added.
+        <div>
+          <img src={emptyCart} class="mx-auto w-2/3 xs:w-1/2 sm:w-80"/>
+          <p class="text-center">No items found</p>
         </div>
       ) : (
         <div class="my-6 border-t text-lg font-semibold">
