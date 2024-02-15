@@ -27,7 +27,7 @@ export default function Home() {
     <div class="">
       <div class="my-7 w-5/6 px-[20px]">
         <p class="font-medium text-black_secondary">Welcome back, Bunny!</p>
-        <h1 class="text-3xl font-medium text-back_primary">What do you want to do read today?</h1>
+        <h1 class="text-3xl font-medium text-back_primary">What do you want to read today?</h1>
       </div>
 
       {/* search */}
@@ -67,12 +67,12 @@ export default function Home() {
       </div>
 
       <div class="pb-24">
-        {/* All books */}
+        {/* Discover */}
         <div class="mt-4 pl-[20px]">
           <p class="text-2xl font-bold text-black_primary">Discover</p>
         </div>
-        {/* Category */}
-        <div class="mt-3 px-[20px] flex gap-6 rounded overflow-y-scroll">
+        {/* Category tags */}
+        <div class="mt-4 px-[20px] flex gap-6 rounded overflow-y-scroll">
           <For each={categories}>
             {(item) => (
               <div
@@ -84,7 +84,7 @@ export default function Home() {
           </For>
         </div>
         {/* Books cards */}
-        <div class="mt-3 px-[20px] w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
+        <div class="mt-4 px-[20px] w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
           <For each={filteredBooks()}>
             {item => (
               <div class="min-w-44 py-3 px-2 grow bg-white shadow-lg rounded">
