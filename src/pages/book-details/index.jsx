@@ -55,7 +55,7 @@ export default function BookDetails() {
 
     return (
         <>
-            <div class="h-screen mx-8 pt-[50px]">
+            <div class="h-screen mx-8 pt-[20px]">
                 {/* navigation */}
                 <div class="flex justify-between">
                     <div onClick={() => navigate(-1, { replace: true })}>
@@ -66,7 +66,7 @@ export default function BookDetails() {
                             viewBox="0 0 24 24"
                             stroke-width="1"
                             stroke="currentColor"
-                            class="cursor-pointer w-6 h-6"
+                            class="cursor-pointer w-8 h-8"
                         >
                             <path
                                 stroke-linecap="round"
@@ -77,7 +77,7 @@ export default function BookDetails() {
                     </div>
                     {/* bookmark icon */}
                     <div
-                        class="cursor-pointer w-6 h-6 text-red_primary"
+                        class="cursor-pointer w-8 h-8 text-red_primary"
                         onClick={handleBookmark}
                     >
                         <svg

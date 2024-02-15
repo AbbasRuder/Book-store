@@ -4,10 +4,10 @@ import { newCartAdded } from '../../store'
 
 export default function Header() {
     return (
-        <div class="px-[20px] pt-[50px] flex justify-between">
+        <div class="px-[20px] pt-[20px] flex justify-between">
             <div class='flex items-center gap-2'>
                 <img src={icon} alt="" class='w-8 h-8' />
-                <p class='text-xl font-bold'>Bookify</p>
+                <p class='text-2xl font-bold'>Bookify</p>
             </div>
 
             <div class="flex gap-5 justify-center items-center">

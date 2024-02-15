@@ -9,27 +9,8 @@ export default function Bookmarks() {
 
     return (
         <>
-            <div class="px-[20px] pt-[50px]">
-                <div class="flex items-center gap-4">
-                    <div onClick={() => navigate("/home", { replace: true })}>
-                        {/* go back icon */}
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="1"
-                            stroke="currentColor"
-                            class="w-5 h-5 cursor-pointer"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-                            />
-                        </svg>
-                    </div>
-                    <p class="text-2xl font-semibold">Bookmarks</p>
-                </div>
+            <div class="px-[20px] pt-[20px]">
+                <p class="text-2xl font-bold text-black_primary">Bookmarks</p>
                 {bookmark.length === 0 ?
                     (
                         <div class="mt-6 text-lg">

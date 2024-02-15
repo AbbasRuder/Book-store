@@ -13,7 +13,6 @@ export default function Cart() {
     setCart(oldCart => {
       let newCart = [...oldCart];
       let itemCopy = {...newCart[index]};
-      // console.log({...newCart[index]})
       itemCopy.quantity += amount;
       if(itemCopy.quantity < 1) itemCopy.quantity = 1
       newCart[index] = itemCopy;
@@ -36,7 +35,7 @@ export default function Cart() {
 
   return (
     <div class="px-[20px]">
-      <div class="pt-[50px] flex items-center gap-4">
+      <div class="pt-[20px] flex items-center gap-4">
         <div onClick={() => navigate("/home", { replace: true })}>
           {/* go back icon */}
           <svg
@@ -45,7 +44,7 @@ export default function Cart() {
             viewBox="0 0 24 24"
             stroke-width="1"
             stroke="currentColor"
-            class="w-5 h-5 cursor-pointer"
+            class="w-8 h-8 cursor-pointer"
           >
             <path
               stroke-linecap="round"
@@ -57,6 +56,7 @@ export default function Cart() {
         <p class="text-2xl font-semibold">Cart</p>
       </div>
 
+      {/* ---- Book-cards ---- */}
       <div class="mt-6 flex flex-col justify-center gap-3">
         <For each={cart}>
           {(item, index) => {
