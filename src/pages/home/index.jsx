@@ -1,6 +1,6 @@
-import { data } from "../books-data";
+import { data } from "../../books-data";
 import { For, createSignal } from "solid-js";
-import ScrollableCard from "../widgets/ScrollableCard";
+import { BookCard } from "../../widgets";
 
 const categories = ['All','Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature', 'Fiction', 'Comedy']
 
@@ -54,7 +54,7 @@ export default function Home() {
         <For each={freeBooks}>
           {item => (
             <div class="min-w-48 py-3 px-2 grow bg-white shadow-lg rounded">
-              <ScrollableCard
+              <BookCard
                 image={item.image}
                 title={item.title}
                 author={item.author}
@@ -74,7 +74,7 @@ export default function Home() {
         {/* Category */}
         <div class="mt-3 px-[20px] flex gap-6 rounded overflow-y-scroll">
           <For each={categories}>
-            {(item, index) => (
+            {(item) => (
               <div
                 onClick={() => filterBooksByGenre(item)}
                 class={`cursor-pointer ${item === selectedGenre() && 'border-b-2 border-red_primary'}`}>
@@ -88,7 +88,7 @@ export default function Home() {
           <For each={filteredBooks()}>
             {item => (
               <div class="min-w-44 py-3 px-2 grow bg-white shadow-lg rounded">
-                <ScrollableCard
+                <BookCard
                   image={item.image}
                   title={item.title}
                   author={item.author}

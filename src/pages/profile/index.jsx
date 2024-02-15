@@ -1,7 +1,7 @@
-import profileImg from "../assets/profile.png"
 import { useNavigate } from "@solidjs/router"
-import BottomNav from "../widgets/BottomNav"
-import { userIcon, emailIcon } from "../assets/icons/icons"
+import { BottomTab } from "../../widgets"
+import profileImg from "../../assets/profile.png"
+import { userIcon, emailIcon } from "../../assets/icons/icons"
 
 export default function Profile() {
     const navigate = useNavigate()
@@ -45,7 +45,7 @@ export default function Profile() {
                     </div>
                 </div>
             </div>
-            <BottomNav />
+            <BottomTab />
         </>
     )
 }

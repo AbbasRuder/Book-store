@@ -1,8 +1,7 @@
 import { For } from "solid-js"
 import { useNavigate } from "@solidjs/router"
-import { bookmark, setNewBookmarkAdded } from "../store"
-import ScrollableCard from "../widgets/ScrollableCard"
-import BottomNav from "../widgets/BottomNav"
+import { bookmark, setNewBookmarkAdded } from "../../store"
+import { BookCard, BottomTab } from "../../widgets"
 
 export default function Bookmarks() {
     const navigate = useNavigate()
@@ -41,8 +40,8 @@ export default function Bookmarks() {
                         <div class="mt-6 pb-24 w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
                             <For each={bookmark}>
                                 {item => (
-                                    <div class="min-w-44 py-3 px-2 grow bg-white bg-slate-200 shadow-lg rounded">
-                                        <ScrollableCard
+                                    <div class="min-w-44 py-3 px-2 grow bg-white shadow-lg rounded">
+                                        <BookCard
                                             image={item.image}
                                             title={item.title}
                                             author={item.author}
@@ -56,7 +55,7 @@ export default function Bookmarks() {
                     )
                 }
             </div >
-            < BottomNav />
+            <BottomTab />
         </>
     )
 }

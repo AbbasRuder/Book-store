@@ -4,12 +4,12 @@ import "./index.css";
 import { Router, Route } from "@solidjs/router";
 
 import App from "./App";
-import BookDetails from "./pages/BookDetails";
-import ExploreBooks from "./pages/ExploreBooks";
-import OnBoardScreen from "./pages/OnBoardScreen";
-import Cart from "./pages/Cart";
-import Bookmarks from "./pages/Bookmarks";
-import Profile from "./pages/Profile";
+import BookDetails from "./pages/book-details";
+import ExploreBooks from "./pages/explore";
+import OnBoardScreen from "./pages/on-board-screen";
+import Cart from "./pages/cart";
+import Bookmarks from "./pages/bookmarks";
+import Profile from "./pages/profile";
 
 const root = document.getElementById("root");
 

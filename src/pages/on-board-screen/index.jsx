@@ -1,4 +1,4 @@
-import svg from '../assets/onboardsvg.svg'
+import svg from '../../assets/onboardsvg.svg'
 import { useNavigate } from '@solidjs/router'
 
 export default function OnBoardScreen() {

@@ -1,10 +1,9 @@
-import { data } from "../books-data"
-import { subscribedBooks } from "../store"
+import { data } from "../../books-data"
+// import { subscribedBooks } from "../store"
 import { createSignal } from "solid-js"
 import { useNavigate } from "@solidjs/router"
-import not_Found_img from '../assets/book-not-found.svg'
-import BottomNav from "../widgets/BottomNav"
-import ScrollableCard from "../widgets/ScrollableCard"
+import not_Found_img from '../../assets/book-not-found.svg'
+import { BookCard, BottomTab } from "../../widgets"
 
 const genres = [
   "All",
@@ -113,8 +112,8 @@ export default function ExploreBooks() {
           <div class="mt-3 pb-24 w-full grid grid-cols-2 gap-3 sm:gap-x-3 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 2xl:grid-cols-6">
           <For each={filteredBooks()}>
             {(item) => (
-              <div class="min-w-44 py-3 px-2 grow bg-white bg-slate-200 shadow-lg rounded">
-                <ScrollableCard
+              <div class="min-w-44 py-3 px-2 grow bg-white shadow-lg rounded">
+                <BookCard
                   image={item.image}
                   title={item.title}
                   author={item.author}
@@ -127,7 +126,7 @@ export default function ExploreBooks() {
         </div>
         )}
       </div>
-      <BottomNav />
+      <BottomTab />
     </>
   )
 }

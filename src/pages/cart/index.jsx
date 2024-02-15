@@ -1,8 +1,8 @@
-import { cart, setCart,setNewCartAdded } from "../store";
-import image from "../assets/book.jpg";
+import { cart, setCart,setNewCartAdded } from "../../store";
+import image from "../../assets/book.jpg";
 import { For, createSignal, createEffect } from "solid-js";
 import { A, useNavigate } from "@solidjs/router";
-import emptyCart from "../assets/Empty-cartoon.png"
+import emptyCart from "../../assets/Empty-cartoon.png"
 
 export default function Cart() {
   const [total, setTotal] = createSignal();
@@ -61,7 +61,7 @@ export default function Cart() {
         <For each={cart}>
           {(item, index) => {
             return (
-              <div class="min-w-[128px] flex py-3 px-2 grow bg-white bg-slate-200 shadow-lg rounded">
+              <div class="min-w-[128px] flex py-3 px-2 grow bg-white shadow-lg rounded">
                 <A href={`/${item.ISBN}`} class="relative">
                   <img
                     src={image}

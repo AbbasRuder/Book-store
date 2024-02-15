@@ -1,8 +1,8 @@
-import icon from '../assets/book-icon2.png'
+import icon from '../../assets/book-icon2.png'
 import { A } from '@solidjs/router'
-import { newCartAdded } from '../store'
+import { newCartAdded } from '../../store'
 
-export default function TopNav() {
+export default function Header() {
     return (
         <div class="px-[20px] pt-[50px] flex justify-between">
             <div class='flex items-center gap-2'>

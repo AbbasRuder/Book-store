@@ -1,8 +1,8 @@
 import { A, useLocation } from "@solidjs/router"
-import { newBookmarkAdded } from "../store"
+import { newBookmarkAdded } from "../../store"
 import { createSignal } from "solid-js"
 
-export default function BottomNav() {
+export default function BottomTab() {
   const [currentTab, setCurrentTab] = createSignal("")
 
   const location = useLocation()

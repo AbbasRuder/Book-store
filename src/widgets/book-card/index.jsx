@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import image from "../assets/book.jpg"
+import image from "../../assets/book.jpg"
 import { createSignal } from "solid-js"
 import {
   cart,
@@ -8,9 +8,9 @@ import {
   bookmark,
   setBookmark,
   setNewBookmarkAdded,
-} from "../store"
+} from "../../store"
 
-export default function ScrollableCard(props) {
+export default function BookCard(props) {
   const book = cart.filter((item) => item.title === props.title)
   const initialState = book[0] !== undefined
   const [showCart, setShowCart] = createSignal(initialState) //-for toggling the add-cart/remove cart icon
