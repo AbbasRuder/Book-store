@@ -71,6 +71,8 @@ body {
 	width: 100vw;
 	overflow-y: scroll;
 	overflow-x: hidden;
+	background-color: #f1f5f9;
+	height: 100dvh;
 }
 
 p {
