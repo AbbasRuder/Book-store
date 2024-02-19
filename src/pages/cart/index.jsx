@@ -57,15 +57,21 @@ export default function Cart() {
                 </A>
 
                 <div class="ml-8 flex flex-col justify-center">
-                  <div class="">
+                  <div>
                     <p class="font-semibold">{item.title}</p>
                     <p class="text-sm text-dark-primary font-medium truncate">
                       {item.author}
                     </p>
-                    <p class="text-lg font-semibold">
-                      {item.price === "Free" ? item.price : `₹ ${(parseInt(item.price) * item.quantity)}`}
-                    </p>
+                    <Show when={item.price === "Free"}>
+                      <div class="mt-1 px-2 bg-secondary/20 rounded w-fit">
+                        <p class="text-lg font-semibold text-secondary">Free</p>
+                      </div>
+                    </Show>
+                    <Show when={item.price !== "Free"}>
+                      <p class="text-lg font-semibold text-primary">₹{(parseInt(item.price) * item.quantity)}</p>
+                    </Show>
                   </div>
+              
                   <div class="mt-4 flex items-center gap-8">
                     <div class="flex items-center border-gray-100">
                       <span

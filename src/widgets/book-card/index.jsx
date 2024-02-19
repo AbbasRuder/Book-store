@@ -1,5 +1,5 @@
 import { A } from "@solidjs/router"
-import { createSignal } from "solid-js"
+import { Show, createSignal } from "solid-js"
 import {
   cart,
   setCart,
@@ -62,9 +62,15 @@ export default function BookCard(props) {
         </p>
       </div>
       <div class="ml-2 flex justify-between items-center">
-        <p class={`text-lg font-semibold ${props.price === "Free" ? 'text-secondary' : 'text-primary'}`}>
-          {props.price !== "Free" && '₹'}{props.price}
-        </p>
+        <Show when={props.price === "Free"}>
+          <div class="px-2 bg-secondary/20 rounded">
+            <p class="text-lg font-semibold text-secondary">Free</p>
+          </div>
+        </Show>
+        <Show when={props.price !== "Free"}>
+          <p class="text-lg font-semibold text-primary">₹{props.price}</p>
+        </Show>
+
         <div class="flex items-center gap-2">
           {showCart() ? (
             <Icons.CrossIcon

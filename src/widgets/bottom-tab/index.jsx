@@ -13,7 +13,7 @@ export default function BottomTab() {
     <div class="fixed bottom-0 left-0 right-0 rounded-t-3xl bg-white shadow-2xl shadow-black">
       <div class="py-6 px-6 flex justify-around items-center">
         <div>
-          {/* home icon */}
+          {/* home */}
           <A href="/home">
             <Icons.HomeIcon
               fill={`${currentTab() === "/home" ? "#D45555" : "none"}`}
@@ -25,19 +25,19 @@ export default function BottomTab() {
         </div>
 
         <div>
-          {/* explore books */}
-          <A href="/explore">
-            <Icons.ExploreBooksIcon
-              fill={`${currentTab() === "/explore" ? "#D45555" : "none"}`}
+          {/* my-subscriptions */}
+          <A href="/subscriptions">
+            <Icons.MySubscriptionsIcon
+              fill={`${currentTab() === "/subscriptions" ? "#D45555" : "none"}`}
               stroke-width="1.5"
-              stroke={`${currentTab() === "/explore" ? 'none' : "currentColor"}`}
+              stroke={`${currentTab() === "/subscriptions" ? 'none' : "currentColor"}`}
               class="w-7 h-7 cursor-pointer text-dark-primary"
             />
           </A>
         </div>
 
         <div>
-          {/* bookmark icon */}
+          {/* bookmark */}
           <A href="/bookmark" class="relative">
             <Icons.BookmarkIcon
               stroke-width="1.5"
@@ -51,7 +51,7 @@ export default function BottomTab() {
         </div>
 
         <div>
-          {/* profile icon */}
+          {/* profile */}
           <A href="/profile">
             <Icons.ProfileIcon
               fill={`${currentTab() === "/profile" ? "#D45555" : "none"}`}

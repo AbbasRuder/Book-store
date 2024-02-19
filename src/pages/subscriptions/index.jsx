@@ -20,7 +20,7 @@ const genres = [
 ]
 const type = ["All", "Free", "Paid"]
 
-export default function ExploreBooks() {
+export default function MySubscriptions() {
   const [allBooks] = createSignal([...subscribedBooks]);
   const [filteredBooks, setFilteredBooks] = createSignal([...subscribedBooks]);
   // const [allBooks] = createSignal([...data.books]);

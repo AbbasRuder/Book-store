@@ -5,7 +5,7 @@ import { Router, Route } from "@solidjs/router";
 
 import App from "./App";
 import BookDetails from "./pages/book-details";
-import ExploreBooks from "./pages/explore";
+import MySubscriptions from "./pages/subscriptions";
 import OnBoardScreen from "./pages/on-board-screen";
 import Cart from "./pages/cart";
 import Bookmarks from "./pages/bookmarks";
@@ -35,7 +35,7 @@ render(
       <Route path="/change-password" component={ChangePassword} />
 
       <Route path="/home" component={App} />
-      <Route path="/explore" component={ExploreBooks} />
+      <Route path="/subscriptions" component={MySubscriptions} />
       <Route path="/:id" component={BookDetails} />
       <Route path="/cart" component={Cart} />
       <Route path="/bookmark" component={Bookmarks} />
