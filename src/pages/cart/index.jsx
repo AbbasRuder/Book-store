@@ -1,8 +1,8 @@
 import { cart, setCart, setNewCartCount } from "../../store";
-import image from "../../assets/book.jpg";
 import { For, createSignal, createEffect } from "solid-js";
 import { A, useNavigate } from "@solidjs/router";
 import emptyCart from "../../assets/Empty-cartoon.png"
+import { Icons } from "../../assets/icons";
 
 export default function Cart() {
   const [total, setTotal] = createSignal();
@@ -37,14 +37,7 @@ export default function Cart() {
     <div class="px-[20px]">
       <div class="pt-[20px] flex items-center gap-4">
         <div onClick={() => navigate("/home", { replace: true })}>
-          {/* go back icon */}
-          <svg
-            viewBox="0 0 512 512"
-            fill="currentColor"
-            class="w-8 h-8 cursor-pointer"
-          >
-            <path d="M256 48C141.13 48 48 141.13 48 256s93.13 208 208 208 208-93.13 208-208S370.87 48 256 48zm62.63 304L296 374.63 177.37 256 296 137.37 318.63 160l-96 96z" />
-          </svg>
+          <Icons.BackIcon />
         </div>
         <p class="text-2xl font-semibold">Cart</p>
       </div>
@@ -89,14 +82,10 @@ export default function Cart() {
                         +
                       </span>
                     </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                      class="w-6 h-6 cursor-pointer text-primary"
+                    <Icons.TrashIcon
                       onClick={() => handleDeleteItem(item)}
-                    >
-                      <path d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375Z" />
-                      <path fill-rule="evenodd" d="m3.087 9 .54 9.176A3 3 0 0 0 6.62 21h10.757a3 3 0 0 0 2.995-2.824L20.913 9H3.087Zm6.133 2.845a.75.75 0 0 1 1.06 0l1.72 1.72 1.72-1.72a.75.75 0 1 1 1.06 1.06l-1.72 1.72 1.72 1.72a.75.75 0 1 1-1.06 1.06L12 15.685l-1.72 1.72a.75.75 0 1 1-1.06-1.06l1.72-1.72-1.72-1.72a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
-                    </svg>
+                      class="w-6 h-6 cursor-pointer text-primary"
+                    />
                   </div>
                 </div>
               </div>

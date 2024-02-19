@@ -1,11 +1,9 @@
 import { For } from "solid-js"
-import { useNavigate } from "@solidjs/router"
 import no_bookmarksImg from "../../assets/no-bookmarks.png"
 import { bookmark, setNewBookmarkCount } from "../../store"
 import { BookCard, BottomTab } from "../../widgets"
 
 export default function Bookmarks() {
-    const navigate = useNavigate()
     setNewBookmarkCount(0)
 
     return (

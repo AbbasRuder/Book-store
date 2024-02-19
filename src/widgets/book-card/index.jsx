@@ -1,5 +1,4 @@
 import { A } from "@solidjs/router"
-import image from "../../assets/book.jpg"
 import { createSignal } from "solid-js"
 import {
   cart,
@@ -9,6 +8,7 @@ import {
   setNewCartCount,
   setNewBookmarkCount,
 } from "../../store"
+import { Icons } from "../../assets/icons"
 
 export default function BookCard(props) {
   const book = cart.filter((item) => item.title === props.title)
@@ -35,7 +35,7 @@ export default function BookCard(props) {
       setBookmark((bookmarks) =>
         bookmarks.filter((item) => item.ISBN !== props.ISBN)
       )
-      setNewBookmarkCount(count => Math.max(0, count-1))
+      setNewBookmarkCount(count => Math.max(0, count - 1))
     } else {
       setBookmark((bookmarks) => [...bookmarks, { ...props }])
       setNewBookmarkCount(count => count + 1);
@@ -67,52 +67,22 @@ export default function BookCard(props) {
         </p>
         <div class="flex items-center gap-2">
           {showCart() ? (
-            // cross icon
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
+            <Icons.CrossIcon
               class="w-8 h-8 cursor-pointer text-green-400 bg-white rounded-full"
               onClick={deleteFromCart}
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            />
           ) : (
-            // plus icon
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
+            <Icons.PlusIcon
               class="w-8 h-8 cursor-pointer text-primary bg-white rounded-full"
               onClick={addToCart}
-            >
-              <path
-                fill-rule="evenodd"
-                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            />
           )}
           {/* bookmark icon */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
+          <Icons.BookmarkIcon
             fill={`${isBookmarked() ? "currentcolor" : "none"}`}
-            viewBox="0 0 24 24"
-            stroke-width="1"
-            stroke="currentColor"
             class={`w-8 h-8 cursor-pointer text-primary`}
             onClick={handleBookmark}
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
-            />
-          </svg>
+          />
         </div>
       </div>
     </>

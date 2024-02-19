@@ -20,11 +20,11 @@ export default function Profile() {
             <div class="w-4/5 flex flex-col gap-2">
               <div class="flex items-center gap-2">
                 <img src={userIcon} alt="" class="w-7 h-7" />
-                <p class="">Bunny Sharma</p>
+                <p>Bunny Sharma</p>
               </div>
               <div class="flex items-center gap-2 ">
                 <img src={emailIcon} alt="" class="w-7 h-7" />
-                <p class="">Bunnysharma@gmail.com</p>
+                <p>Bunnysharma@gmail.com</p>
               </div>
               <Button
                 class="mt-8"

@@ -1,6 +1,7 @@
 import { data } from "../../books-data";
 import { For, createSignal } from "solid-js";
 import { BookCard } from "../../widgets";
+import { Icons } from "../../assets/icons";
 
 const categories = ['All','Novel', 'Crime', 'Science', 'Romance', 'History', 'Literature', 'Fiction', 'Comedy']
 
@@ -24,7 +25,7 @@ export default function Home() {
   }
 
   return (
-    <div class="">
+    <div>
       <div class="my-7 w-5/6 px-[20px]">
         <p class="font-medium text-dark-primary">Welcome back, Bunny!</p>
         <h1 class="text-3xl font-medium">What do you want to read today?</h1>
@@ -33,9 +34,7 @@ export default function Home() {
       {/* search */}
       <div class="relative px-[20px] flex items-center">
         <div class="absolute inset-y-0 start-0 flex items-center ps-10 pointer-events-none">
-          <svg class="w-4 h-4 text-dark-secondary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-          </svg>
+          <Icons.SearchIcon class="w-4 h-4 text-dark-secondary"/>
         </div>
         <input
           type="search"

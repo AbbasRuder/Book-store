@@ -1,7 +1,6 @@
 import { data } from "../../books-data"
 // import { subscribedBooks } from "../store"
 import { For, createSignal } from "solid-js"
-import { useNavigate } from "@solidjs/router"
 import not_Found_img from '../../assets/book-not-found.svg'
 import { BookCard, BottomTab, BottomSheet, Button } from "../../widgets"
 import { cn } from "../../AppUtils"
@@ -32,9 +31,6 @@ export default function ExploreBooks() {
   const [toggle, setToggle] = createSignal(false)
   const [filter, setFilter] = createSignal("All");
 
-
-  const navigate = useNavigate()
-
   const applyFilters = () => {
     const genre = selectedGenre();
     const priceType = selectedPriceType();
@@ -62,16 +58,6 @@ export default function ExploreBooks() {
           <p class="text-2xl font-bold">Explore</p>
 
           {/* Filter (free/paid) */}
-            {/* <select
-              class="p-2 border border-dark-secondary  text-sm rounded-lg focus:ring-primary focus:border-primary cursor-pointer"
-              onChange={(e) => filterBooksByPriceType(e.target.value)}
-            >
-              <option value="All" selected>
-                All Books
-              </option>
-              <option value="Free">Free Books</option>
-              <option value="Paid">Paid Books</option>
-            </select> */}
           <Button
 						onClick={() => setToggle(true)}
 						variant="outlined"
@@ -79,7 +65,6 @@ export default function ExploreBooks() {
 						class="btn rounded-lg"
             leftIcon={<Icons.ToggleDown />}
 					>
-
             {filter()}
 					</Button>
         </div>
