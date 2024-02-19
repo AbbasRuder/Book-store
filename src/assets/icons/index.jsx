@@ -1,7 +1,7 @@
-import { AiOutlineEye, AiOutlineLoading3Quarters, AiTwotoneEyeInvisible } from "solid-icons/ai";
+import { AiOutlineEye, AiOutlineClose, AiOutlineLoading3Quarters, AiTwotoneEyeInvisible } from "solid-icons/ai";
 import { FaRegularComment, FaSolidChevronLeft, FaSolidHeart } from "solid-icons/fa";
 import { FiMenu, FiSearch } from "solid-icons/fi";
-import { RiSystemShareForwardFill } from "solid-icons/ri";
+import { RiSystemShareForwardFill, RiArrowsArrowDownSLine } from "solid-icons/ri";
 
 export const Icons = {
     HomeIcon: (props) => (
@@ -67,6 +67,7 @@ export const Icons = {
     ),
 
     LoadingIcon: AiOutlineLoading3Quarters,
+    CloseIcon: AiOutlineClose,
     EyeOpenIcon: AiOutlineEye,
     EyeOffIcon: AiTwotoneEyeInvisible,
     MenuIcon: FiMenu,
@@ -75,4 +76,5 @@ export const Icons = {
     LikeIcon: FaSolidHeart,
     CommentIcon: FaRegularComment,
     ShareIcon: RiSystemShareForwardFill,
+    ToggleDown: RiArrowsArrowDownSLine,
 };

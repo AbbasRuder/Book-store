@@ -1,9 +1,11 @@
 import { data } from "../../books-data"
 // import { subscribedBooks } from "../store"
-import { createSignal } from "solid-js"
+import { For, createSignal } from "solid-js"
 import { useNavigate } from "@solidjs/router"
 import not_Found_img from '../../assets/book-not-found.svg'
-import { BookCard, BottomTab } from "../../widgets"
+import { BookCard, BottomTab, BottomSheet, Button } from "../../widgets"
+import { cn } from "../../AppUtils"
+import { Icons } from "../../assets/icons"
 
 const genres = [
   "All",
@@ -17,6 +19,7 @@ const genres = [
   "Fiction",
   "Comedy",
 ]
+const type = ["All", "Free", "Paid"]
 
 export default function ExploreBooks() {
   // const [allBooks] = createSignal([...subscribedBooks]);
@@ -25,6 +28,10 @@ export default function ExploreBooks() {
   const [filteredBooks, setFilteredBooks] = createSignal([...data.books]);
   const [selectedGenre, setSelectedGenre] = createSignal("All");
   const [selectedPriceType, setSelectedPriceType] = createSignal("All");
+
+  const [toggle, setToggle] = createSignal(false)
+  const [filter, setFilter] = createSignal("All");
+
 
   const navigate = useNavigate()
 
@@ -55,16 +62,26 @@ export default function ExploreBooks() {
           <p class="text-2xl font-bold">Explore</p>
 
           {/* Filter (free/paid) */}
-          <select
-            class="p-2 border border-dark-secondary  text-sm rounded-lg focus:ring-primary focus:border-primary cursor-pointer"
-            onChange={(e) => filterBooksByPriceType(e.target.value)}
-          >
-            <option value="All" selected>
-              All Books
-            </option>
-            <option value="Free">Free Books</option>
-            <option value="Paid">Paid Books</option>
-          </select>
+            {/* <select
+              class="p-2 border border-dark-secondary  text-sm rounded-lg focus:ring-primary focus:border-primary cursor-pointer"
+              onChange={(e) => filterBooksByPriceType(e.target.value)}
+            >
+              <option value="All" selected>
+                All Books
+              </option>
+              <option value="Free">Free Books</option>
+              <option value="Paid">Paid Books</option>
+            </select> */}
+          <Button
+						onClick={() => setToggle(true)}
+						variant="outlined"
+            size="sm"
+						class="btn rounded-lg"
+            leftIcon={<Icons.ToggleDown />}
+					>
+
+            {filter()}
+					</Button>
         </div>
 
         {/* genres filter */}
@@ -107,6 +124,36 @@ export default function ExploreBooks() {
         )}
       </div>
       <BottomTab />
+
+      <BottomSheet toggle={toggle()} setToggle={setToggle} title="Select Type">
+        <div class="space-y-4 pb-8">
+            <For each={type}>
+              {(option, index) => (
+                <div
+                  onClick={() => {
+                    setFilter(option)
+                    filterBooksByPriceType(option)
+                  }}
+                  class={cn(
+                    "flex items-center gap-x-3 border-b border-b-base-200 py-3",
+                    { "border-0": type.length === index() + 1 }
+                  )}
+                >
+                  <input
+                    id={option}
+                    type="radio"
+                    name="filter"
+                    class="radio radio-primary"
+                    checked={filter() === option}
+                  />
+                  <label for={option} class="font-semibold">
+                    {option}
+                  </label>
+                </div>
+              )}
+            </For>
+          </div>
+      </BottomSheet>
     </>
   )
 }
