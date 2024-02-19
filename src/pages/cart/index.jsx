@@ -1,4 +1,4 @@
-import { cart, setCart, setNewCartAdded } from "../../store";
+import { cart, setCart, setNewCartCount } from "../../store";
 import image from "../../assets/book.jpg";
 import { For, createSignal, createEffect } from "solid-js";
 import { A, useNavigate } from "@solidjs/router";
@@ -7,7 +7,7 @@ import emptyCart from "../../assets/Empty-cartoon.png"
 export default function Cart() {
   const [total, setTotal] = createSignal();
   const navigate = useNavigate()
-  setNewCartAdded(false)
+  setNewCartCount(0)
 
   function updateQuantity(index, amount) {
     setCart(oldCart => {
@@ -108,7 +108,7 @@ export default function Cart() {
       {cart.length === 0 ? (
         <div>
           <img src={emptyCart} class="mx-auto w-2/3 xs:w-1/2 sm:w-80" />
-          <p class="text-center">No items found</p>
+          <p class="text-center text-lg">No items found</p>
         </div>
       ) : (
         <div class="my-6 border-t text-lg font-semibold">

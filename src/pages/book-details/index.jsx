@@ -5,7 +5,7 @@ import { For, createSignal } from "solid-js"
 import {
     bookmark,
     setBookmark,
-    setNewBookmarkAdded,
+    setNewBookmarkCount,
     subscribedBooks,
     setSubscribedBooks,
 } from "../../store"
@@ -34,9 +34,10 @@ export default function BookDetails() {
             setBookmark((bookmarks) =>
                 bookmarks.filter((item) => item.ISBN !== selectedBook.ISBN)
             )
+            setNewBookmarkCount(count => Math.max(0, count-1))
         } else {
             setBookmark((bookmarks) => [...bookmarks, { ...selectedBook }])
-            setNewBookmarkAdded(true)
+            setNewBookmarkAdded(count => count + 1)
         }
         setIsBookmarked(!isBookmarked())
     }

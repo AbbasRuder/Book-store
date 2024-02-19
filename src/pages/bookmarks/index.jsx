@@ -1,11 +1,12 @@
 import { For } from "solid-js"
 import { useNavigate } from "@solidjs/router"
-import { bookmark, setNewBookmarkAdded } from "../../store"
+import no_bookmarksImg from "../../assets/no-bookmarks.png"
+import { bookmark, setNewBookmarkCount } from "../../store"
 import { BookCard, BottomTab } from "../../widgets"
 
 export default function Bookmarks() {
     const navigate = useNavigate()
-    setNewBookmarkAdded(false)
+    setNewBookmarkCount(0)
 
     return (
         <>
@@ -13,7 +14,8 @@ export default function Bookmarks() {
                 <p class="text-2xl font-bold">Bookmarks</p>
                 {bookmark.length === 0 ?
                     (
-                        <div class="mt-6 text-lg">
+                        <div class="mt-6 text-lg text-center">
+                            <img src={no_bookmarksImg} alt="illustration" class="mx-auto w-2/3 xs:w-1/2 sm:w-80"/>
                             No Bookmarks added yet.
                         </div>
                     ) :

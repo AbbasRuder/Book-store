@@ -4,30 +4,30 @@ import { createSignal } from "solid-js"
 import {
   cart,
   setCart,
-  setNewCartAdded,
   bookmark,
   setBookmark,
-  setNewBookmarkAdded,
+  setNewCartCount,
+  setNewBookmarkCount,
 } from "../../store"
 
 export default function BookCard(props) {
   const book = cart.filter((item) => item.title === props.title)
   const initialState = book[0] !== undefined
-  const [showCart, setShowCart] = createSignal(initialState) //-for toggling the add-cart/remove cart icon
+  const [showCart, setShowCart] = createSignal(initialState) //-for toggling the add to cart/remove from cart
   const bookmarkedBooks = bookmark.filter((item) => item.ISBN === props.ISBN)
   const BMinitialState = bookmarkedBooks[0] !== undefined
-  const [isBookmarked, setIsBookmarked] = createSignal(BMinitialState) //-for coloring the bookmark icon
+  const [isBookmarked, setIsBookmarked] = createSignal(BMinitialState)
 
   const addToCart = () => {
     setShowCart(!showCart())
     setCart((oldCart) => [...oldCart, { ...props, quantity: 1 }])
-    setNewCartAdded(true)
+    setNewCartCount(count => count + 1)
   }
 
   const deleteFromCart = () => {
     setShowCart(!showCart())
     setCart((oldCart) => oldCart.filter((item) => item.ISBN !== props.ISBN))
-    // setNewCartAdded(false)
+    setNewCartCount(count => Math.max(0, count - 1))
   }
 
   const handleBookmark = () => {
@@ -35,10 +35,10 @@ export default function BookCard(props) {
       setBookmark((bookmarks) =>
         bookmarks.filter((item) => item.ISBN !== props.ISBN)
       )
-      // setNewBookmarkAdded(false)
+      setNewBookmarkCount(count => Math.max(0, count-1))
     } else {
       setBookmark((bookmarks) => [...bookmarks, { ...props }])
-      setNewBookmarkAdded(true)
+      setNewBookmarkCount(count => count + 1);
     }
     setIsBookmarked(!isBookmarked())
   }

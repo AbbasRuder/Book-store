@@ -6,18 +6,18 @@ const [cart, setCart] = createStore([])
 const [bookmark, setBookmark] = createStore([])
 const [subscribedBooks, setSubscribedBooks] = createStore([])
 
-const [newCartAdded, setNewCartAdded] = createSignal(false)
-const [newBookmarkAdded, setNewBookmarkAdded] = createSignal(false)
+const [newCartCount, setNewCartCount] = createSignal(0)
+const [newBookmarkCount, setNewBookmarkCount] = createSignal(0);
 
 export {
     cart,
     setCart,
     bookmark, 
     setBookmark,
-    newBookmarkAdded,
-    setNewBookmarkAdded,
-    newCartAdded,
-    setNewCartAdded,
     subscribedBooks,
-    setSubscribedBooks
+    setSubscribedBooks,
+    newCartCount,
+    setNewCartCount,
+    newBookmarkCount,
+    setNewBookmarkCount
 }
