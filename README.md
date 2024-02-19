@@ -1,7 +1,13 @@
 # Book-store
 
-My first project using `Solidjs`. Currently has two pages - one that shows the list of books available and when clicked on a book, it navigates to the other page that has more info about that book. The data is coming from a `json` object. The routing is implemented using `Solid-Router`
+A book e-commerce application that has the following feature
+- bookmarks
+- subscribed-books
+- add-to-cart
+- filter by genre and type(free/paid)
+- login/logout/forgot-password pages (not functional)
 
+My first project using `Solidjs`. This application is primarily optimized for mobile screens and the data is coming from a `json` object that is present in the `src` directory.
 
 ## Usage
 
