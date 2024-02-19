@@ -1,13 +1,13 @@
-import TopNav from "./widgets/TopNav";
-import Home from "./pages/Home";
-import BottomNav from "./widgets/BottomNav";
+import Header from "./pages/home/header";
+import Home from "./pages/home";
+import { BottomTab } from "./widgets";
 
 function App() {
   return (
     <div class="relative bg-slate-100">
-      <TopNav />
+      <Header />
       <Home/>
-      <BottomNav />
+      <BottomTab />
     </div>
   );
 }
