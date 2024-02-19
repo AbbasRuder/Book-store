@@ -1,5 +1,5 @@
 import { data } from "../../books-data"
-// import { subscribedBooks } from "../store"
+import { subscribedBooks } from "../../store"
 import { For, createSignal } from "solid-js"
 import not_Found_img from '../../assets/book-not-found.svg'
 import { BookCard, BottomTab, BottomSheet, Button } from "../../widgets"
@@ -21,10 +21,10 @@ const genres = [
 const type = ["All", "Free", "Paid"]
 
 export default function ExploreBooks() {
-  // const [allBooks] = createSignal([...subscribedBooks]);
-  // const [filteredBooks, setFilteredBooks] = createSignal([...subscribedBooks]);
-  const [allBooks] = createSignal([...data.books]);
-  const [filteredBooks, setFilteredBooks] = createSignal([...data.books]);
+  const [allBooks] = createSignal([...subscribedBooks]);
+  const [filteredBooks, setFilteredBooks] = createSignal([...subscribedBooks]);
+  // const [allBooks] = createSignal([...data.books]);
+  // const [filteredBooks, setFilteredBooks] = createSignal([...data.books]);
   const [selectedGenre, setSelectedGenre] = createSignal("All");
   const [selectedPriceType, setSelectedPriceType] = createSignal("All");
 
@@ -55,7 +55,7 @@ export default function ExploreBooks() {
     <>
       <div class="px-[20px] pt-[20px]">
         <div class="flex justify-between items-center">
-          <p class="text-2xl font-bold">Explore</p>
+          <p class="text-2xl font-bold">My Subscriptions</p>
 
           {/* Filter (free/paid) */}
           <Button
